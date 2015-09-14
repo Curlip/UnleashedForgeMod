@@ -15,6 +15,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.curlip.unleashed.blocks.Counter;
 import com.curlip.unleashed.blocks.Gradient;
 import com.curlip.unleashed.blocks.ItemBlockGradient;
 import com.curlip.unleashed.blocks.ItemBlockSolid;
@@ -63,6 +64,8 @@ public class UnleashedMod {
 
         blockRegister.add(new RedstoneSlimeBlock("powerslime"));
         blockRegister.add(new RedstoneSoulSand("powersoulsand"));
+        
+        blockRegister.add(new Counter("counter"));
         
         //-- Start Items --//
         

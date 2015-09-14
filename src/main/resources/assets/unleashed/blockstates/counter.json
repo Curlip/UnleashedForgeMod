@@ -1,0 +1,14 @@
+{
+    "variants": {
+        “number=0”: { "model":"unleashed:counter0” },
+        "number=1”: { "model":"unleashed:counter1” },
+        "number=2”: { "model":"unleashed:counter2” },
+        "number=3“: { "model":"unleashed:counter3” },
+        "number=4“: { "model":"unleashed:counter4” },
+        "number=5“: { "model":"unleashed:counter5” },
+        "number=6“: { "model":"unleashed:counter6” },
+        "number=7“: { "model":"unleashed:counter7” },
+        "number=8“: { "model":"unleashed:counter8” },
+        "number=9“: { "model":"unleashed:counter9” }
+    }
+}
