@@ -1,30 +1,22 @@
 package com.curlip.unleashed.items.chargers;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import static net.minecraft.util.EnumChatFormatting.DARK_RED;
+import static net.minecraft.util.EnumChatFormatting.GOLD;
 
-import com.curlip.unleashed.UnleashedInfo;
-import com.curlip.unleashed.UnleashedMod;
-import com.curlip.unleashed.framework.SimpleItem;
-import com.curlip.unleashed.framework.interfaces.OldUnleashedCharger;
-import com.curlip.unleashed.framework.interfaces.UnleashedCharger;
-import com.curlip.unleashed.framework.interfaces.UnleashedMetaItem;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import static net.minecraft.util.EnumChatFormatting.*;
+
+import com.curlip.unleashed.UnleashedInfo;
+import com.curlip.unleashed.framework.SimpleItem;
+import com.curlip.unleashed.framework.interfaces.UnleashedMetaItem;
 
 public class ChargeCore extends SimpleItem implements UnleashedMetaItem {
 
