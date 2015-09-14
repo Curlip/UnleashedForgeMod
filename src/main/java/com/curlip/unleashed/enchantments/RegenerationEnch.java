@@ -42,7 +42,7 @@ public class RegenerationEnch extends SimpleEnchantment {
 			if(rand.nextInt(3) < level){
 				EntityPlayer player = (EntityPlayer) user;
 				
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), (int) Math.ceil(level * 1.5), 1, true, true));
+				player.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), ((int) Math.ceil(level * ((rand.nextDouble() + 0.5) * 1.5))) * 10, 1, false, true));
 			}
 		}
 	}
