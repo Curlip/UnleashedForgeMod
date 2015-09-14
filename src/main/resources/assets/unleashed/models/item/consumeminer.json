@@ -1,0 +1,19 @@
+{
+    "parent": "builtin/generated",
+    "textures": {
+        "layer0": "unleashed:items/consumeminer_underlay",
+        "layer1": "unleashed:items/consumeminer"
+    },
+    "display": {
+        "thirdperson": {
+             "rotation": [ 180, 90, -15 ],
+             "translation": [ 0, 1.25, -5 ],
+             "scale": [ 1.25, 1.25, 1.25 ]
+        },
+        "firstperson": {
+            "rotation": [ 0, 15, 15 ],
+            "translation": [ 0, 7, 2 ],
+            "scale": [ 2.5, 2.5, 2.5 ]
+        }
+    }
+}

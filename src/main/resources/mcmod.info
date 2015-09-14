@@ -1,0 +1,16 @@
+[
+{
+  "modid": "unleashed",
+  "name": "Minecraft Unleashed",
+  "description": "Minecraft Overhaul; ",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Curlip"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

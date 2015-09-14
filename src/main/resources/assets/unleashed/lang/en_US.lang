@@ -1,0 +1,61 @@
+itemGroup.tabUnleashed=Minecraft Unleashed
+itemGroup.tabCraftingUnleashed=MU Crafting Elements
+
+key.categories.unleashed.armor=Unleashed Armor
+
+key.helmet=Helmet Ability
+key.chestplate=Chestplate Ability
+key.leggings=Leggings Ability
+key.boots=Boot Ability
+
+tile.simplegradient_0.name=White Gradient
+tile.simplegradient_1.name=Orange Gradient
+tile.simplegradient_2.name=Magenta Gradient
+tile.simplegradient_3.name=Light Blue Gradient
+tile.simplegradient_4.name=Yellow Gradient
+tile.simplegradient_5.name=Lime Gradient
+tile.simplegradient_6.name=Pink Gradient
+tile.simplegradient_7.name=Gray Gradient
+tile.simplegradient_8.name=Light Grey Gradient
+tile.simplegradient_9.name=Cyan Gradient
+tile.simplegradient_10.name=Purple Gradient
+tile.simplegradient_11.name=Blue Gradient
+tile.simplegradient_12.name=Brown Gradient
+tile.simplegradient_13.name=Green Gradient
+tile.simplegradient_14.name=Red Gradient
+tile.simplegradient_15.name=Black Gradient
+
+tile.solidblock_0.name=White Pixel Block
+tile.solidblock_1.name=Orange Pixel Block
+tile.solidblock_2.name=Magenta Pixel Block
+tile.solidblock_3.name=Light Blue Pixel Block
+tile.solidblock_4.name=Yellow Pixel Block
+tile.solidblock_5.name=Lime Pixel Block
+tile.solidblock_6.name=Pink Pixel Block
+tile.solidblock_7.name=Gray Pixel Block
+tile.solidblock_8.name=Light Grey Pixel Block
+tile.solidblock_9.name=Cyan Pixel Block
+tile.solidblock_10.name=Purple Pixel Block
+tile.solidblock_11.name=Blue Pixel Block
+tile.solidblock_12.name=Brown Pixel Block
+tile.solidblock_13.name=Green Pixel Block
+tile.solidblock_14.name=Red Pixel Block
+tile.solidblock_15.name=Black Pixel Block
+
+tile.powerslime.name=Redstone Slime Block
+tile.powersoulsand.name=Redstone Soul Sand
+
+item.backpack.name=Backpack (WIP)
+item.tntminer.name=TNT Block Injector (WIP)
+item.tntminer.name=Block Consumer (WIP)
+
+item.elementpipe.name=Pipe
+item.elementblockfunnel.name=Block Funnel
+
+item.chargecore.name=Charge Core
+item.chargecore0.name=Charge Core (Redstone)
+item.chargecore1.name=Charge Core (Glowstone)
+
+item.energycrystal.name=Charge Crystal
+item.energycrystal0.name=Charge Crystal (Glowstone)
+item.energycrystal1.name=Charge Crystal (Emerald)

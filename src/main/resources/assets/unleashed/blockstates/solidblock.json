@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "color=white"     : { "model":"unleashed:solidblock" },
+        "color=orange"    : { "model":"unleashed:solidblock" },
+        "color=brown"     : { "model":"unleashed:solidblock" },
+        "color=lime"      : { "model":"unleashed:solidblock" },
+        "color=purple"    : { "model":"unleashed:solidblock" },
+        "color=blue"      : { "model":"unleashed:solidblock" },
+        "color=gray"      : { "model":"unleashed:solidblock" },
+        "color=magenta"   : { "model":"unleashed:solidblock" },
+        "color=green"     : { "model":"unleashed:solidblock" },
+        "color=yellow"    : { "model":"unleashed:solidblock" },
+        "color=cyan"      : { "model":"unleashed:solidblock" },
+        "color=red"       : { "model":"unleashed:solidblock" },
+        "color=silver"    : { "model":"unleashed:solidblock" },
+        "color=black"     : { "model":"unleashed:solidblock" },
+        "color=light_blue": { "model":"unleashed:solidblock" },
+        "color=pink"      : { "model":"unleashed:solidblock" }
+    }
+}

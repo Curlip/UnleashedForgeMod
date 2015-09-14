@@ -1,0 +1,37 @@
+############ BUILDCRAFT COPY ###############
+
+#eclipse
+.project
+.classpath
+.metadata
+org.*
+bin
+
+#idea
+*.iml
+*.ipr
+*.iws
+.idea
+out
+
+#gradle
+build
+.gradle
+
+#runtime
+run
+
+#mac
+.DS_Store
+
+############ BUILDCRAFT COPY END ###############
+
+gradlew
+gradlew.bat
+build.gradlew
+forge-1.8-11.14.3.1450-changelog.txt
+build.gradle
+
+gradlew
+logs
+eclipse
