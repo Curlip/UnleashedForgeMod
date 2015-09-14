@@ -14,11 +14,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
-import com.curlip.unleashed.UnleashedMod;
-import com.curlip.unleashed.framework.OldUnleashedChargable;
 import com.curlip.unleashed.framework.UnleashedChargable;
-import com.curlip.unleashed.items.chargers.ChargeCore;
-import com.curlip.unleashed.items.chargers.EnergyCrystal;
 import com.curlip.unleashed.items.chargers.EnergyCrystalCharger;
 
 public class ConsumeMiner extends UnleashedChargable {

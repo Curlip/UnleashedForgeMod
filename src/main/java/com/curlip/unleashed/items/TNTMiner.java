@@ -1,25 +1,17 @@
 package com.curlip.unleashed.items;
 
-import org.lwjgl.input.Keyboard;
-
-import com.curlip.unleashed.UnleashedMod;
-import com.curlip.unleashed.framework.OldUnleashedChargable;
-import com.curlip.unleashed.framework.UnleashedChargable;
-import com.curlip.unleashed.items.chargers.ChargeCore;
-import com.curlip.unleashed.items.chargers.ChargeCoreCharger;
-
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+
+import org.lwjgl.input.Keyboard;
+
+import com.curlip.unleashed.framework.UnleashedChargable;
+import com.curlip.unleashed.items.chargers.ChargeCoreCharger;
 
 public class TNTMiner extends UnleashedChargable {
 
