@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        “all": "unleashed:blocks/counter3”
+        "all": "unleashed:blocks/counter3"
     }
 }

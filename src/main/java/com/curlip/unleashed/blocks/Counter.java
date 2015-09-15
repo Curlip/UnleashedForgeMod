@@ -29,7 +29,7 @@ import com.curlip.unleashed.wip.TileEntityCounter;
 
 public class Counter extends SimpleBlock implements UnleashedMetaBlock {
 
-	public static final PropertyInteger NUMBER = PropertyInteger.create("number", 0, 9);
+	public static final PropertyInteger NUMBER = PropertyInteger.create("numb", 0, 9);
 	
     public Counter(String id) {
         super(Material.rock, id);
@@ -55,7 +55,7 @@ public class Counter extends SimpleBlock implements UnleashedMetaBlock {
     
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ){
-    	worldIn.getBlockState(pos).cycleProperty(NUMBER);
+    	worldIn.setBlockState(pos, worldIn.getBlockState(pos).cycleProperty(NUMBER));
     	
         return true;
     }
