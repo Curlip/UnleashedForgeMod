@@ -89,7 +89,11 @@ public class Gradient extends Block implements UnleashedMetaBlock {
     public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass){
     	EnumDyeColor color = (EnumDyeColor) Minecraft.getMinecraft().theWorld.getBlockState(pos).getProperties().get(COLOR);
     	
-        return color.getMapColor().colorValue;
+    	if(color != null){
+    		return color.getMapColor().colorValue;
+    	}
+    	
+        return 0xFFFFFF;
     }
 
 	@Override
