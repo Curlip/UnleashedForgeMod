@@ -55,11 +55,22 @@ public class Counter extends SimpleBlock implements UnleashedMetaBlock {
     
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ){
-    	worldIn.setBlockState(pos, worldIn.getBlockState(pos).cycleProperty(NUMBER));
+    	if(!worldIn.isBlockPowered(pos)){
+    	    worldIn.setBlockState(pos, worldIn.getBlockState(pos).cycleProperty(NUMBER));
+    	    
+    	    return true;
+    	}
     	
-        return true;
+        return false;
     }
 
+    @Override
+    public int getComparatorInputOverride(World worldIn, BlockPos pos){
+        return ((Integer) worldIn.getBlockState(pos).getValue(NUMBER)) + 6;
+    }
+    
+    @Override public boolean hasComparatorInputOverride(){  return true;  }
+    
     @Override
 	public String getUnlocalizedNameForIndex(int index) {
 		return getUnlocalizedName().substring(5) + "_" + index;
@@ -73,7 +84,7 @@ public class Counter extends SimpleBlock implements UnleashedMetaBlock {
 	@Override
 	public void registerRender() {
 		for(int i = 0; i <= 16; i++){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), i, new ModelResourceLocation(UnleashedInfo.MODID + ":" + getModelNameForIndex(i), "inventory"));
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), i, new ModelResourceLocation(UnleashedInfo.MODID + ":" +  getUnlocalizedName().substring(5), "inventory"));
 		}
 	}
 }

@@ -6,6 +6,9 @@
         "numb=3":{ "model": "unleashed:counter3" },
         "numb=4":{ "model": "unleashed:counter4" },
         "numb=5":{ "model": "unleashed:counter5" },
-        "numb=6":{ "model": "unleashed:counter6" }
+        "numb=6":{ "model": "unleashed:counter6" },
+        "numb=7":{ "model": "unleashed:counter7" },
+        "numb=8":{ "model": "unleashed:counter8" },
+        "numb=9":{ "model": "unleashed:counter9" }
     }
 }

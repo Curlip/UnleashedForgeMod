@@ -13,9 +13,9 @@
         }
     ],
     "textures": {
-       "particle": "unleashed:blocks/counter0",
+       "particle": "unleashed:blocks/counter9",
        "bottom": "unleashed:blocks/blank",
        "top": "unleashed:blocks/blank",
-       "side": "unleashed:blocks/counter0"   
+       "side": "unleashed:blocks/counter9"   
     }
 }

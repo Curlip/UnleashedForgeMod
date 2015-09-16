@@ -1,6 +1,21 @@
 {
-    "parent": "block/cube_all",
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "#bottom", "tintindex": 1  },
+                "up":    { "texture": "#top",    "cullface": "#top"  ,  "tintindex": 1  },
+                "north": { "texture": "#side",    "cullface": "#side",   "tintindex": 1  },
+                "south": { "texture": "#side",   "cullface": "#side",   "tintindex": 1  },
+                "west":  { "texture": "#side",   "cullface": "#side",   "tintindex": 1  },
+                "east":  { "texture": "#side",   "cullface": "#side",   "tintindex": 1  }
+            }
+        }
+    ],
     "textures": {
-        "all": "unleashed:blocks/counter3"
+       "particle": "unleashed:blocks/counter3",
+       "bottom": "unleashed:blocks/blank",
+       "top": "unleashed:blocks/blank",
+       "side": "unleashed:blocks/counter3"   
     }
 }
