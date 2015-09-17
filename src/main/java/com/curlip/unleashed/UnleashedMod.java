@@ -21,6 +21,7 @@ import com.curlip.unleashed.blocks.ItemBlockGradient;
 import com.curlip.unleashed.blocks.ItemBlockSolid;
 import com.curlip.unleashed.blocks.RedstoneSlimeBlock;
 import com.curlip.unleashed.blocks.RedstoneSoulSand;
+import com.curlip.unleashed.blocks.Sensor;
 import com.curlip.unleashed.enchantments.RegenerationEnch;
 import com.curlip.unleashed.framework.SimpleItem;
 import com.curlip.unleashed.framework.interfaces.UnleashedBlock;
@@ -66,6 +67,8 @@ public class UnleashedMod {
         blockRegister.add(new RedstoneSoulSand("powersoulsand"));
         
         blockRegister.add(new Counter("counter"));
+        
+        blockRegister.add(new Sensor("sensor"));
         
         //-- Start Items --//
         
