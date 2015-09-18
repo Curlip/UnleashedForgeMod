@@ -3,6 +3,7 @@ package com.curlip.unleashed;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -11,7 +12,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -35,7 +35,6 @@ import com.curlip.unleashed.items.chargers.ChargeCore;
 import com.curlip.unleashed.items.chargers.ChargeCoreCharger;
 import com.curlip.unleashed.items.chargers.EnergyCrystal;
 import com.curlip.unleashed.items.chargers.EnergyCrystalCharger;
-import com.curlip.unleashed.wip.TileEntityCounter;
 
 @Mod(modid=UnleashedInfo.MODID, version=UnleashedInfo.VERSION, name=UnleashedInfo.MODNAME)
 public class UnleashedMod {
@@ -44,19 +43,41 @@ public class UnleashedMod {
 		BACKPACK
 	}
 
-
 	@Instance(value = UnleashedInfo.MODID)
     public static UnleashedMod instance;
 	
 	public Register<UnleashedBlock> blockRegister = new Register<UnleashedBlock>();
 	public Register<UnleashedItem> itemRegister = new Register<UnleashedItem>();
-	
 	public Register<UnleashedEnchantment> enchRegister = new Register<UnleashedEnchantment>();
 	
 	public static ArmorMaterial BACKPACK = EnumHelper.addArmorMaterial("BACKPACK", "packpack", 0, new int[]{0, 0, 0, 0}, 0);
 	
+	public Configuration config;
+	
+	public boolean wipEnabled = false;
+	
 	@EventHandler
     public void preInit(FMLPreInitializationEvent event){
+		//Config
+		config = new Configuration(event.getSuggestedConfigurationFile());
+		
+        config.load();
+        
+        wipEnabled = config.getBoolean("enableWip", Configuration.CATEGORY_GENERAL, false, 
+        		"Should WIP (Work In Progress) features be added. \n"
+        	  + "!!WARNING!! These features may have bad side-effect. \n"
+        	  + "Crashed aren't uncommon, textures might not have been made, \n"
+        	  + "features not implemented, ect. \n\n"
+        	  + "Be Warned. \n");
+        
+        if(wipEnabled){
+        	event.getModLog().info("WIP features enabled.");
+        }else{
+        	event.getModLog().info("WIP features disabled.");
+        }
+        
+        config.save();
+		
 		ChargerRegistry.instance.add(new EnergyCrystalCharger(0));
         ChargerRegistry.instance.add(new ChargeCoreCharger(0));
 		
@@ -68,7 +89,13 @@ public class UnleashedMod {
         
         blockRegister.add(new Counter("counter"));
         
-        blockRegister.add(new Sensor("sensor"));
+        if(wipEnabled){ 
+        	blockRegister.add(new Sensor("sensor"));
+        }else{
+        	event.getModLog().info("Sensor (WIP) Disabled because WIP features aren't enabled.");
+        }
+        
+        
         
         //-- Start Items --//
         
@@ -80,13 +107,9 @@ public class UnleashedMod {
         
         itemRegister.add(new TNTMiner("tntminer"));
         itemRegister.add(new ConsumeMiner("consumeminer"));
- 
-        GameRegistry.registerTileEntity(TileEntityCounter.class, "tileentity_counter");
-        
+
         enchRegister.add(new RegenerationEnch(75, "regeneration"));
-        
-        //FMLCommonHandler.instance().bus().register(new KeyInputHandler());
-        //KeyBindings.init();
+
     }
         
     @EventHandler
