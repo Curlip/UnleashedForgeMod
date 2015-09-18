@@ -83,10 +83,6 @@ public class Sensor extends UnleashedGenericBlock implements UnleashedMetaBlock 
 			BlockPos player = Minecraft.getMinecraft().thePlayer.getPosition();
 			
 			Iterator<BlockPos> posses = (Iterator<BlockPos>) pos.getAllInBox(pos, pos.add(dist, dist, 0));
-			
-			 for(BlockPos ipos : posses){
-				 
-			 }
 		}
 		
         return dist-1;

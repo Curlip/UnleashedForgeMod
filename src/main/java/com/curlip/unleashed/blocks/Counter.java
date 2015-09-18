@@ -1,23 +1,14 @@
 package com.curlip.unleashed.blocks;
 
-import java.util.Collection;
-import java.util.List;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -25,7 +16,6 @@ import net.minecraft.world.World;
 import com.curlip.unleashed.UnleashedInfo;
 import com.curlip.unleashed.framework.SimpleBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedMetaBlock;
-import com.curlip.unleashed.wip.TileEntityCounter;
 
 public class Counter extends SimpleBlock implements UnleashedMetaBlock {
 
