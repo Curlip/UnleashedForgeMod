@@ -45,6 +45,8 @@ tile.solidblock_15.name=Black Pixel Block
 tile.powerslime.name=Redstone Slime Block
 tile.powersoulsand.name=Redstone Soul Sand
 
+tile.counter.name=Counter
+
 item.backpack.name=Backpack (WIP)
 item.tntminer.name=TNT Block Injector (WIP)
 item.tntminer.name=Block Consumer (WIP)
