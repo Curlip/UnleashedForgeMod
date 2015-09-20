@@ -15,8 +15,8 @@ public class UnleashedChargable extends SimpleItem {
 	
 	private boolean hasChargerNbt = false;
 
-	public UnleashedChargable(String itemid, UnleashedCharger charger) {
-		super(itemid);
+	public UnleashedChargable(String itemid, UnleashedCharger charger, boolean wip) {
+		super(itemid, wip);
 		
 		this.defaultCharger = charger;
 		

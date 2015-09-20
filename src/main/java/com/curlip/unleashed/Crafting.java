@@ -17,32 +17,34 @@ public class Crafting {
 	static Register<UnleashedItem> itemRegister = UnleashedMod.instance.itemRegister;
 
 	public static void register() {
-		GameRegistry.addRecipe(new ItemStack(itemRegister.getByID("tntminer").getMinecraftItem()), 
-    			new Object[]{
-    		
-    		"I..",
-    		"PT.",
-    		"CPI",
-    		
-    		'I', itemRegister.getByID("elementblockfunnel").getMinecraftItem(),
-    		'T', Blocks.tnt,
-    		'P', itemRegister.getByID("elementpipe").getMinecraftItem(),
-    		'C', new ItemStack(itemRegister.getByID("chargecore").getMinecraftItem(), 1, 0),
-    	});
+		if(UnleashedMod.instance.wipEnabled){
+			GameRegistry.addRecipe(new ItemStack(itemRegister.getByID("tntminer").getMinecraftItem()), 
+					new Object[]{
+
+				"I..",
+				"PT.",
+				"CPI",
+
+				'I', itemRegister.getByID("elementblockfunnel").getMinecraftItem(),
+				'T', Blocks.tnt,
+				'P', itemRegister.getByID("elementpipe").getMinecraftItem(),
+				'C', new ItemStack(itemRegister.getByID("chargecore").getMinecraftItem(), 1, 0),
+			});
+
+			GameRegistry.addRecipe(new ItemStack(itemRegister.getByID("tntminer").getMinecraftItem()), 
+					new Object[]{
+
+				"I..",
+				"CPO",
+				"I..",
+
+				'O', itemRegister.getByID("elementblockfunnel").getMinecraftItem(),
+				'I', Items.iron_ingot,
+				'P', itemRegister.getByID("elementpipe").getMinecraftItem(),
+				'C', new ItemStack(itemRegister.getByID("chargecore").getMinecraftItem(), 1, 0),
+			});
+		}
 		
-		GameRegistry.addRecipe(new ItemStack(itemRegister.getByID("tntminer").getMinecraftItem()), 
-    			new Object[]{
-    		
-    		"I..",
-    		"CPO",
-    		"I..",
-    		
-    		'O', itemRegister.getByID("elementblockfunnel").getMinecraftItem(),
-    		'I', Items.iron_ingot,
-    		'P', itemRegister.getByID("elementpipe").getMinecraftItem(),
-    		'C', new ItemStack(itemRegister.getByID("chargecore").getMinecraftItem(), 1, 0),
-    	});
-    	
     	GameRegistry.addRecipe(new ItemStack(itemRegister.getByID("elementpipe").getMinecraftItem(), 6, 0), 
     			new Object[]{
     		

@@ -1,6 +1,9 @@
 package com.curlip.unleashed;
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.config.Configuration;
@@ -56,8 +59,30 @@ public class UnleashedMod {
 	
 	public boolean wipEnabled = false;
 	
+	private Logger log;
+	
+	public static CreativeTabs tabUnleashed = new CreativeTabs("tabUnleashed") {
+        @Override
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem() {
+            return instance.itemRegister.getByID("chargecore").getMinecraftItem();
+        }
+    };
+    
+    public static CreativeTabs tabCraftingUnleashed = new CreativeTabs("tabCraftingUnleashed") {
+        @Override
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem() {
+            return instance.itemRegister.getByID("elementpipe").getMinecraftItem();
+        }
+    };
+    
+    public static CreativeTabs tabWipUnleashed;
+	
 	@EventHandler
     public void preInit(FMLPreInitializationEvent event){
+		log = event.getModLog();
+		
 		//Config
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		
@@ -78,6 +103,20 @@ public class UnleashedMod {
         
         config.save();
 		
+        if(wipEnabled){ 
+        	tabWipUnleashed = new CreativeTabs("tabWipUnleashed") {
+                @Override
+                @SideOnly(Side.CLIENT)
+                public Item getTabIconItem() {
+                    return Items.prismarine_shard;
+                }
+            };
+        }
+        
+        blockRegister.add(new Sensor("sensor"));
+    	itemRegister.add(new TNTMiner("tntminer"));
+        itemRegister.add(new ConsumeMiner("consumeminer"));
+        
 		ChargerRegistry.instance.add(new EnergyCrystalCharger(0));
         ChargerRegistry.instance.add(new ChargeCoreCharger(0));
 		
@@ -89,24 +128,13 @@ public class UnleashedMod {
         
         blockRegister.add(new Counter("counter"));
         
-        if(wipEnabled){ 
-        	blockRegister.add(new Sensor("sensor"));
-        }else{
-        	event.getModLog().info("Sensor (WIP) Disabled because WIP features aren't enabled.");
-        }
-        
-        
-        
         //-- Start Items --//
         
-        itemRegister.add(new SimpleItem("elementpipe"));
-        itemRegister.add(new SimpleItem("elementblockfunnel"));
+        itemRegister.add(new SimpleItem("elementpipe", false));
+        itemRegister.add(new SimpleItem("elementblockfunnel", false));
         
         itemRegister.add(new ChargeCore("chargecore"));
         itemRegister.add(new EnergyCrystal("energycrystal"));
-        
-        itemRegister.add(new TNTMiner("tntminer"));
-        itemRegister.add(new ConsumeMiner("consumeminer"));
 
         enchRegister.add(new RegenerationEnch(75, "regeneration"));
 
@@ -123,23 +151,6 @@ public class UnleashedMod {
     public void postInit(FMLPostInitializationEvent event){
     	registerModels();
     }
-
-    
-    public static CreativeTabs tabUnleashed = new CreativeTabs("tabUnleashed") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public Item getTabIconItem() {
-            return instance.itemRegister.getByID("chargecore").getMinecraftItem();
-        }
-    };
-    
-    public static CreativeTabs tabCraftingUnleashed = new CreativeTabs("tabCraftingUnleashed") {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public Item getTabIconItem() {
-            return instance.itemRegister.getByID("elementpipe").getMinecraftItem();
-        }
-    };
     
     private void registerModels(){
     	if(Side.CLIENT.isClient()) {
@@ -151,5 +162,9 @@ public class UnleashedMod {
     			uitem.registerRender();
     		}
     	}
+    }
+    
+    public Logger getLog(){
+    	return log;
     }
 }

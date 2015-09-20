@@ -6,10 +6,9 @@ import net.minecraft.world.World;
 
 public class SimpleBlock extends UnleashedGenericBlock {
 	
-	public SimpleBlock(Material material, String id) {
-		super(material, id);
+	public SimpleBlock(Material material, String id, boolean wip) {
+		super(material, id, wip);
 		
 		setHardness(1.5F);
 	}
-
 }

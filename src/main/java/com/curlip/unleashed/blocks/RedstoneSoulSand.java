@@ -17,7 +17,7 @@ import com.curlip.unleashed.framework.SimpleBlock;
 public class RedstoneSoulSand extends SimpleBlock {
 
 	public RedstoneSoulSand(String id) {
-		super(Material.sand, id);
+		super(Material.sand, id, false);
     }
 
 	@Override

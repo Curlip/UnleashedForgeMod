@@ -20,7 +20,7 @@ import com.curlip.unleashed.framework.SimpleBlock;
 public class RedstoneSlimeBlock extends SimpleBlock {
 
 	public RedstoneSlimeBlock(String id) {
-		super(Material.clay,id);
+		super(Material.clay, id, false);
 
 		this.slipperiness = 0.8F;
 	}

@@ -22,7 +22,7 @@ public class Counter extends SimpleBlock implements UnleashedMetaBlock {
 	public static final PropertyInteger NUMBER = PropertyInteger.create("numb", 0, 9);
 	
     public Counter(String id) {
-        super(Material.rock, id);
+        super(Material.rock, id, false);
         
         setDefaultState(this.blockState.getBaseState().withProperty(NUMBER, 0));
     } 

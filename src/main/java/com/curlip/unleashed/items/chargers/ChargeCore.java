@@ -27,7 +27,7 @@ public class ChargeCore extends SimpleItem implements UnleashedMetaItem {
 	static int[] decrement = new int[]{1, 1};
 	
 	public ChargeCore(String itemid) {
-		super(itemid);
+		super(itemid, false);
 		
 		setHasSubtypes(true);
         setMaxDamage(0);
@@ -56,8 +56,10 @@ public class ChargeCore extends SimpleItem implements UnleashedMetaItem {
 	
 	public void addInformation(ItemStack itemStack, EntityPlayer player,
             List list, boolean par4) {
-
-            list.add(itemTypes[itemStack.getMetadata()]);
+		
+		super.addInformation(itemStack, player, list, par4);
+		
+        list.add(itemTypes[itemStack.getMetadata()]);
         
 	}
 

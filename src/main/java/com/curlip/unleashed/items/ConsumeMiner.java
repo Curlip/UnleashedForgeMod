@@ -20,7 +20,7 @@ import com.curlip.unleashed.items.chargers.EnergyCrystalCharger;
 public class ConsumeMiner extends UnleashedChargable {
 
 	public ConsumeMiner(String itemid) {
-		super(itemid, new EnergyCrystalCharger(0));
+		super(itemid, new EnergyCrystalCharger(0), true);
 
 		setMaxStackSize(1);
 	}

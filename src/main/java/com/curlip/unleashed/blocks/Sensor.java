@@ -17,6 +17,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumFacing.Axis;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -25,17 +26,22 @@ import com.curlip.unleashed.framework.interfaces.UnleashedMetaBlock;
 
 public class Sensor extends UnleashedGenericBlock implements UnleashedMetaBlock {
 
-	public enum FlatAxis {
+	public enum FlatAxis implements IStringSerializable {
 		X, 
 		Z, 
 		ALL,
 		NONE;
+
+		@Override
+		public String getName() {
+			return this.toString();
+		}
 	}
 	
 	public static final PropertyEnum AXIS = PropertyEnum.create("axis", FlatAxis.class);
 	
 	public Sensor(String blockid) {
-		super(Material.rock, blockid);
+		super(Material.rock, blockid, true);
 		
 		setDefaultState(this.blockState.getBaseState().withProperty(AXIS, FlatAxis.ALL));
 	}

@@ -47,9 +47,7 @@ tile.powersoulsand.name=Redstone Soul Sand
 
 tile.counter.name=Counter
 
-item.backpack.name=Backpack (WIP)
-item.tntminer.name=TNT Block Injector (WIP)
-item.tntminer.name=Block Consumer (WIP)
+
 
 item.elementpipe.name=Pipe
 item.elementblockfunnel.name=Block Funnel
@@ -61,3 +59,13 @@ item.chargecore1.name=Charge Core (Glowstone)
 item.energycrystal.name=Charge Crystal
 item.energycrystal0.name=Charge Crystal (Glowstone)
 item.energycrystal1.name=Charge Crystal (Emerald)
+
+
+item.backpack.name=Backpack (WIP)
+item.tntminer.name=TNT Block Injector (WIP)
+item.consumeminer.name=Block Consumer (WIP)
+
+tile.sensor.name=Sensor (WIP)
+
+itemGroup.tabWipUnleashed=Unleashed WIP
+
