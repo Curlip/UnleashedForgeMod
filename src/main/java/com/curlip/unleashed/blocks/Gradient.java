@@ -14,15 +14,18 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldSettings.GameType;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -79,9 +82,7 @@ public class Gradient extends Block implements UnleashedMetaBlock {
 	
 	@Override
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
-		for(EnumDyeColor color : EnumDyeColor.values()){
-			list.add(new ItemStack(itemIn, 1, color.getMetadata()));
-		}
+		list.add(new ItemStack(itemIn, 1, 0));
 	}
 
     @Override
@@ -96,6 +97,23 @@ public class Gradient extends Block implements UnleashedMetaBlock {
         return 0xFFFFFF;
     }
 
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ){
+			if(playerIn.inventory.getCurrentItem().getItem() instanceof ItemDye){
+				ItemStack stack = playerIn.inventory.getCurrentItem();
+			
+				if((15 - stack.getMetadata()) != ((EnumDyeColor) worldIn.getBlockState(pos).getValue(COLOR)).getMetadata()){
+					worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(COLOR, EnumDyeColor.byMetadata(15 - stack.getMetadata())));
+				
+					playerIn.inventory.decrStackSize(playerIn.inventory.currentItem, 1);
+				
+					return true;
+				}
+			}
+			
+    	return false;
+    }
+    
 	@Override
 	public String getID() {
 		return id;
