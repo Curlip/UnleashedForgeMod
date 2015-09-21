@@ -6,8 +6,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -58,6 +60,7 @@ public class UnleashedMod {
 	public Configuration config;
 	
 	public boolean wipEnabled = false;
+	public boolean damageMessageEnabled = true;
 	
 	private Logger log;
 	
@@ -88,12 +91,18 @@ public class UnleashedMod {
 		
         config.load();
         
-        wipEnabled = config.getBoolean("enableWip", Configuration.CATEGORY_GENERAL, false, 
+        wipEnabled = config.getBoolean("enableWip", Configuration.CATEGORY_GENERAL, wipEnabled, 
         		"Should WIP (Work In Progress) features be added. \n"
         	  + "!!WARNING!! These features may have bad side-effect. \n"
         	  + "Crashed aren't uncommon, textures might not have been made, \n"
         	  + "features not implemented, ect. \n\n"
         	  + "Be Warned. \n");
+        
+        damageMessageEnabled = config.getBoolean("enableDamageMessages", Configuration.CATEGORY_GENERAL, damageMessageEnabled, 
+        		"Should Damage Messages such as, 'You have been attacked by a \n"
+        	  + "Zombie', be enabled. \n"
+        	  + "Please note I have tried to make them as infrequent as possible, \n"
+        	  + "whilst still making them useful. \n");
         
         if(wipEnabled){
         	event.getModLog().info("WIP features enabled.");
@@ -137,14 +146,17 @@ public class UnleashedMod {
         itemRegister.add(new EnergyCrystal("energycrystal"));
 
         enchRegister.add(new RegenerationEnch(75, "regeneration"));
-
     }
         
     @EventHandler
     public void load(FMLInitializationEvent event){    	
     	Crafting.register();
     	
-    	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+    	if(damageMessageEnabled){
+        	DamageMessageEvents damageMessageEvent = new DamageMessageEvents();
+        	
+        	MinecraftForge.EVENT_BUS.register(damageMessageEvent);
+        }
     }
         
     @EventHandler
