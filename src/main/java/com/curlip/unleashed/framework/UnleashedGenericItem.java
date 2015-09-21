@@ -74,4 +74,7 @@ public abstract class UnleashedGenericItem extends Item implements UnleashedItem
 			tooltip.add(EnumChatFormatting.DARK_RED.toString() + EnumChatFormatting.BOLD.toString() + "It May Not Work!");
 		}
 	}
+	
+	@Override
+	public void registerRecipes() {}
 }

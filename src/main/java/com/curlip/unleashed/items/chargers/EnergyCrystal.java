@@ -10,11 +10,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.curlip.unleashed.CraftingHandler;
 import com.curlip.unleashed.UnleashedInfo;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.SimpleItem;
 import com.curlip.unleashed.framework.interfaces.UnleashedMetaItem;
 
@@ -75,6 +78,26 @@ public class EnergyCrystal extends SimpleItem implements UnleashedMetaItem  {
 				
 				Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item.getMinecraftItem(), sub.getMetadata(), new ModelResourceLocation(UnleashedInfo.MODID + ":" + item.getModelNameForIndex(sub.getMetadata()), "inventory"));
 			}
+		}
+	}
+	
+	@Override
+	public void registerRecipes(){
+		int i = 0;
+		
+		for(ItemStack stack : items){
+			Item g = Item.getItemFromBlock(Blocks.glowstone);
+			
+			CraftingRecipe recipe =	
+			new CraftingRecipe(new Item[][]{
+					new Item[]{g, g, g},
+					new Item[]{g, stack.getItem(), g},
+					new Item[]{g ,g, g}
+				}, new ItemStack(this, 1, i));
+			
+			CraftingHandler.add(recipe);
+			
+			i++;
 		}
 	}
 }

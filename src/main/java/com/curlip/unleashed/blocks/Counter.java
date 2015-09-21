@@ -15,9 +15,10 @@ import net.minecraft.world.World;
 
 import com.curlip.unleashed.UnleashedInfo;
 import com.curlip.unleashed.framework.SimpleBlock;
+import com.curlip.unleashed.framework.UnleashedGenericBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedMetaBlock;
 
-public class Counter extends SimpleBlock implements UnleashedMetaBlock {
+public class Counter extends UnleashedGenericBlock implements UnleashedMetaBlock {
 
 	public static final PropertyInteger NUMBER = PropertyInteger.create("numb", 0, 9);
 	

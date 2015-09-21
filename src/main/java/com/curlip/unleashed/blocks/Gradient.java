@@ -15,6 +15,8 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -30,28 +32,23 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.curlip.unleashed.CraftingHandler;
 import com.curlip.unleashed.UnleashedInfo;
 import com.curlip.unleashed.UnleashedMod;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.SimpleBlock;
+import com.curlip.unleashed.framework.UnleashedGenericBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedMetaBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedMetaItem;
 
-public class Gradient extends Block implements UnleashedMetaBlock {
+public class Gradient extends UnleashedGenericBlock implements UnleashedMetaBlock {
 
 	public static final PropertyEnum COLOR = PropertyEnum.create("color", EnumDyeColor.class);
-	
-	private String id;
 
 	public Gradient(String id, Class<? extends ItemBlock> iblock) {
-		super(Material.rock);
-		
-		this.id = id;
-		
-		GameRegistry.registerBlock(this, iblock, id);
+		super(Material.rock, id, false);
 
-		setUnlocalizedName(id);
-		setCreativeTab(UnleashedMod.tabUnleashed);
 		setDefaultState(this.blockState.getBaseState().withProperty(COLOR, EnumDyeColor.WHITE));
 	}
 
@@ -113,17 +110,7 @@ public class Gradient extends Block implements UnleashedMetaBlock {
 			
     	return false;
     }
-    
-	@Override
-	public String getID() {
-		return id;
-	}
 
-	@Override
-	public Block getMinecraftBlock() {
-		return this;
-	}
-	
 	@Override
 	public String getUnlocalizedNameForIndex(int index) {
 		return getUnlocalizedName().substring(5) + "_" + index;
@@ -144,5 +131,10 @@ public class Gradient extends Block implements UnleashedMetaBlock {
 		for(int i = 0; i <= 16; i++){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), i, new ModelResourceLocation(UnleashedInfo.MODID + ":" + getModelNameForIndex(i), "inventory"));
 		}
+	}
+	
+	@Override
+	public void registerRecipes(){
+		
 	}
 }

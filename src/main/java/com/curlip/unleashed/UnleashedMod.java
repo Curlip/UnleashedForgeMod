@@ -150,7 +150,7 @@ public class UnleashedMod {
         
     @EventHandler
     public void load(FMLInitializationEvent event){    	
-    	Crafting.register();
+    	CraftingHandler.register();
     	
     	if(damageMessageEnabled){
         	DamageMessageEvents damageMessageEvent = new DamageMessageEvents();

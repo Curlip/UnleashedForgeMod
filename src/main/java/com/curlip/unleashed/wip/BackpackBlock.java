@@ -1,6 +1,7 @@
 package com.curlip.unleashed.wip;
 
 import com.curlip.unleashed.UnleashedMod;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.interfaces.UnleashedBlock;
 
 import net.minecraft.block.Block;
@@ -38,5 +39,11 @@ public class BackpackBlock extends Block implements UnleashedBlock {
 	public void registerRender() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public CraftingRecipe[] getRelatedRecipes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

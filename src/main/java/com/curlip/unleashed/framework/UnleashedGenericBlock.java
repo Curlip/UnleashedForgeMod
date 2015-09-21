@@ -65,4 +65,6 @@ public abstract class UnleashedGenericBlock extends Block implements UnleashedBl
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), 0, new ModelResourceLocation(UnleashedInfo.MODID + ":" + getID(), "inventory"));
 	}
 
+	@Override
+	public void registerRecipes() {}
 }

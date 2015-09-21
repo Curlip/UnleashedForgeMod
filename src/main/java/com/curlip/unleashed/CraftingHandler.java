@@ -3,6 +3,8 @@ package com.curlip.unleashed;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.curlip.unleashed.framework.CraftingRecipe;
+import com.curlip.unleashed.framework.interfaces.UnleashedBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedItem;
 import com.curlip.unleashed.framework.registers.Register;
 
@@ -12,12 +14,27 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class Crafting {
+public class CraftingHandler {
 
-	static Register<UnleashedItem> itemRegister = UnleashedMod.instance.itemRegister;
-
+	private static List<CraftingRecipe> recipes = new ArrayList<CraftingRecipe>();
+	
 	public static void register() {
-		if(UnleashedMod.instance.wipEnabled){
+
+		for(UnleashedBlock ublock : UnleashedMod.instance.blockRegister.getAll()){
+			ublock.registerRecipes();
+		}
+		
+		for(UnleashedItem uitem : UnleashedMod.instance.itemRegister.getAll()) {
+			uitem.registerRecipes();
+		}
+		
+		for(CraftingRecipe recipe : recipes){
+			if(recipe != null){
+				GameRegistry.addRecipe(recipe.getResult(), recipe.getMinecraftRecipe());
+			}
+		}
+		
+		/*if(UnleashedMod.instance.wipEnabled){
 			GameRegistry.addRecipe(new ItemStack(itemRegister.getByID("tntminer").getMinecraftItem()), 
 					new Object[]{
 
@@ -111,6 +128,10 @@ public class Crafting {
 						'G', Blocks.glowstone, 'V', centers[i] 
 				});
 			}
-		}
+		}*/
+	}
+	
+	public static void add(CraftingRecipe recipe){
+		recipes.add(recipe);
 	}
 }

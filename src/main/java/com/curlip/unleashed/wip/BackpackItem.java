@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.curlip.unleashed.UnleashedInfo;
 import com.curlip.unleashed.UnleashedMod;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.interfaces.UnleashedItem;
 import com.curlip.unleashed.framework.interfaces.UnleashedWearable;
 
@@ -107,5 +108,11 @@ public class BackpackItem extends ItemArmor implements UnleashedWearable, Unleas
 	public void registerRender() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public CraftingRecipe[] getRelatedRecipes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
