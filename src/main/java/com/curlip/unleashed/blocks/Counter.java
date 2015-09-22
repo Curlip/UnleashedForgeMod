@@ -8,12 +8,20 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
+import com.curlip.unleashed.CraftingHandler;
 import com.curlip.unleashed.UnleashedInfo;
+import com.curlip.unleashed.UnleashedMod;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.SimpleBlock;
 import com.curlip.unleashed.framework.UnleashedGenericBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedMetaBlock;
@@ -77,5 +85,18 @@ public class Counter extends UnleashedGenericBlock implements UnleashedMetaBlock
 		for(int i = 0; i <= 16; i++){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), i, new ModelResourceLocation(UnleashedInfo.MODID + ":" +  getUnlocalizedName().substring(5), "inventory"));
 		}
+	}
+	
+	@Override
+	public void registerRecipes(){
+		ItemStack p = new ItemStack(Item.getItemFromBlock(UnleashedMod.instance.blockRegister.getByID("solidblock").getMinecraftBlock()), 1, OreDictionary.WILDCARD_VALUE);
+		ItemStack s = new ItemStack(Items.sign);
+		ItemStack r = new ItemStack(Items.redstone);
+		
+		CraftingHandler.add(new CraftingRecipe(new ItemStack[][]{
+				new ItemStack[]{p, s, p},
+				new ItemStack[]{s, r, s},
+				new ItemStack[]{p, s, p}
+		}, new ItemStack(this, 1, 0)));
 	}
 }

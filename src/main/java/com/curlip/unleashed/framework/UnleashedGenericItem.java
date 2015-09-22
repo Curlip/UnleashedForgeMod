@@ -24,7 +24,11 @@ public abstract class UnleashedGenericItem extends Item implements UnleashedItem
 	private boolean wip;
 	public boolean enabled = true;
 
-	protected UnleashedGenericItem(String itemid, boolean wip) {
+	protected UnleashedGenericItem(String itemid, boolean wip){
+		this(itemid, wip, true);
+	}
+	
+	protected UnleashedGenericItem(String itemid, boolean wip, boolean autoRegister) {
 		super();
 		
 		this.id = itemid;
@@ -48,7 +52,9 @@ public abstract class UnleashedGenericItem extends Item implements UnleashedItem
 			enabled = false;
 			UnleashedMod.instance.getLog().info(LanguageRegistry.instance().getStringLocalization(getUnlocalizedName() + ".name") + " was Disabled because WIP features are turned off.");
 		}else{
-			GameRegistry.registerItem(getMinecraftItem(), id);
+			if(autoRegister){
+				GameRegistry.registerItem(getMinecraftItem(), id);
+			}
 		}
 	}
 

@@ -27,6 +27,10 @@ public abstract class UnleashedGenericBlock extends Block implements UnleashedBl
 	public boolean enabled = true;
 	
 	protected UnleashedGenericBlock(Material material, String blockid, boolean wip) {
+		this(material, blockid, wip, true);
+	}
+	
+	protected UnleashedGenericBlock(Material material, String blockid, boolean wip, boolean autoRegister) {
 		super(material);
 		
 		this.id = blockid;
@@ -46,7 +50,9 @@ public abstract class UnleashedGenericBlock extends Block implements UnleashedBl
 			enabled = false;
 			UnleashedMod.instance.getLog().info(getLocalizedName() + " was Disabled because WIP features are turned off.");
 		}else{
-			GameRegistry.registerBlock(getMinecraftBlock(), id);
+			if(autoRegister){
+				GameRegistry.registerBlock(getMinecraftBlock(), id);
+			}
 		}
 	}
 

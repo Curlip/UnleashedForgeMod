@@ -6,15 +6,23 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
+import com.curlip.unleashed.CraftingHandler;
+import com.curlip.unleashed.UnleashedMod;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.SimpleBlock;
 
 public class RedstoneSlimeBlock extends SimpleBlock {
@@ -98,4 +106,17 @@ public class RedstoneSlimeBlock extends SimpleBlock {
     		return 0xFFFFFF;
     	}
     }
+    
+    @Override
+	public void registerRecipes(){
+		Item b = Items.iron_ingot;
+		Item t = Item.getItemFromBlock(Blocks.slime_block);
+		Item r = Items.redstone;
+			
+		CraftingHandler.add(new CraftingRecipe(new Item[][]{
+				new Item[]{t, t, t},
+				new Item[]{b, r, b},
+				new Item[]{b, b, b}
+		}, new ItemStack(this, 4, 0)));
+	}
 }

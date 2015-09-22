@@ -31,6 +31,7 @@ import net.minecraft.world.WorldSettings.GameType;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.curlip.unleashed.CraftingHandler;
 import com.curlip.unleashed.UnleashedInfo;
@@ -47,8 +48,9 @@ public class Gradient extends UnleashedGenericBlock implements UnleashedMetaBloc
 	public static final PropertyEnum COLOR = PropertyEnum.create("color", EnumDyeColor.class);
 
 	public Gradient(String id, Class<? extends ItemBlock> iblock) {
-		super(Material.rock, id, false);
+		super(Material.rock, id, false, false);
 
+		GameRegistry.registerBlock(getMinecraftBlock(), iblock, id);
 		setDefaultState(this.blockState.getBaseState().withProperty(COLOR, EnumDyeColor.WHITE));
 	}
 
@@ -135,6 +137,28 @@ public class Gradient extends UnleashedGenericBlock implements UnleashedMetaBloc
 	
 	@Override
 	public void registerRecipes(){
+		if(this==UnleashedMod.instance.blockRegister.getByID("simplegradient")){
+			ItemStack w = new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 0);
+			ItemStack g = new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 7);
+			ItemStack b = new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 15);
+			
+			CraftingHandler.add(new CraftingRecipe(new ItemStack[][]{
+					new ItemStack[]{w, w, w},
+					new ItemStack[]{g, g, g},
+					new ItemStack[]{b, b, b}
+			}, new ItemStack(this, 9, 0)));
+		}else if(this==UnleashedMod.instance.blockRegister.getByID("solidblock")){
+			ItemStack w = new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 0);
+			
+			CraftingHandler.add(new CraftingRecipe(new ItemStack[][]{
+					new ItemStack[]{w, w, w},
+					new ItemStack[]{w, w, w},
+					new ItemStack[]{w, w, w}
+			}, new ItemStack(this, 9, 0)));
+		}
 		
+		for(int i=0; i <= 15; i++){
+			GameRegistry.addShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(Items.dye, 1, 15 - i), new ItemStack(Item.getItemFromBlock(this), 1, OreDictionary.WILDCARD_VALUE));
+		}
 	}
 }

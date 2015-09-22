@@ -5,6 +5,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -12,6 +16,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.curlip.unleashed.CraftingHandler;
+import com.curlip.unleashed.framework.CraftingRecipe;
 import com.curlip.unleashed.framework.SimpleBlock;
 
 public class RedstoneSoulSand extends SimpleBlock {
@@ -47,4 +53,17 @@ public class RedstoneSoulSand extends SimpleBlock {
     		return 0xFFFFFF;
     	}
     }
+    
+    @Override
+   	public void registerRecipes(){
+   		Item b = Items.iron_ingot;
+   		Item t = Item.getItemFromBlock(Blocks.soul_sand);
+   		Item r = Items.redstone;
+   			
+   		CraftingHandler.add(new CraftingRecipe(new Item[][]{
+   				new Item[]{t, t, t},
+   				new Item[]{b, r, b},
+   				new Item[]{b, b, b}
+   		}, new ItemStack(this, 4, 0)));
+   	}
 }
