@@ -47,10 +47,10 @@ public class Gradient extends UnleashedGenericBlock implements UnleashedMetaBloc
 
 	public static final PropertyEnum COLOR = PropertyEnum.create("color", EnumDyeColor.class);
 
-	public Gradient(String id, Class<? extends ItemBlock> iblock) {
+	public Gradient(String id) {
 		super(Material.rock, id, false, false);
 
-		GameRegistry.registerBlock(getMinecraftBlock(), iblock, id);
+		GameRegistry.registerBlock(getMinecraftBlock(), ItemBlockGradient.class, id);
 		setDefaultState(this.blockState.getBaseState().withProperty(COLOR, EnumDyeColor.WHITE));
 	}
 

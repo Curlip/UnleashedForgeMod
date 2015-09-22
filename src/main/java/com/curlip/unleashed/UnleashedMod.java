@@ -1,7 +1,5 @@
 package com.curlip.unleashed;
 
-import org.apache.logging.log4j.Logger;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -9,21 +7,19 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import org.apache.logging.log4j.Logger;
+
 import com.curlip.unleashed.blocks.Counter;
 import com.curlip.unleashed.blocks.Gradient;
-import com.curlip.unleashed.blocks.ItemBlockGradient;
-import com.curlip.unleashed.blocks.ItemBlockSolid;
 import com.curlip.unleashed.blocks.RedstoneSlimeBlock;
 import com.curlip.unleashed.blocks.RedstoneSoulSand;
 import com.curlip.unleashed.blocks.Sensor;
@@ -33,7 +29,6 @@ import com.curlip.unleashed.framework.interfaces.UnleashedBlock;
 import com.curlip.unleashed.framework.interfaces.UnleashedEnchantment;
 import com.curlip.unleashed.framework.interfaces.UnleashedItem;
 import com.curlip.unleashed.framework.registers.Register;
-import com.curlip.unleashed.handlers.GuiHandler;
 import com.curlip.unleashed.items.ConsumeMiner;
 import com.curlip.unleashed.items.TNTMiner;
 import com.curlip.unleashed.items.chargers.ChargeCore;
@@ -129,8 +124,8 @@ public class UnleashedMod {
 		ChargerRegistry.instance.add(new EnergyCrystalCharger(0));
         ChargerRegistry.instance.add(new ChargeCoreCharger(0));
 		
-        blockRegister.add(new Gradient("simplegradient", ItemBlockGradient.class));
-        blockRegister.add(new Gradient("solidblock", ItemBlockSolid.class));
+        blockRegister.add(new Gradient("simplegradient"));
+        blockRegister.add(new Gradient("solidblock"));
 
         blockRegister.add(new RedstoneSlimeBlock("powerslime"));
         blockRegister.add(new RedstoneSoulSand("powersoulsand"));
