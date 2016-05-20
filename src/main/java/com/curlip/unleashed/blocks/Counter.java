@@ -28,7 +28,7 @@ import com.curlip.unleashed.framework.interfaces.UnleashedMetaBlock;
 
 public class Counter extends UnleashedGenericBlock implements UnleashedMetaBlock {
 
-	public static final PropertyInteger NUMBER = PropertyInteger.create("numb", 0, 9);
+	public static final PropertyInteger NUMBER = PropertyInteger.create("numb", 0, 8);
 	
     public Counter(String id) {
         super(Material.rock, id, false);
@@ -65,7 +65,7 @@ public class Counter extends UnleashedGenericBlock implements UnleashedMetaBlock
 
     @Override
     public int getComparatorInputOverride(World worldIn, BlockPos pos){
-        return ((Integer) worldIn.getBlockState(pos).getValue(NUMBER)) + 6;
+        return ((Integer) worldIn.getBlockState(pos).getValue(NUMBER));
     }
     
     @Override public boolean hasComparatorInputOverride(){  return true;  }

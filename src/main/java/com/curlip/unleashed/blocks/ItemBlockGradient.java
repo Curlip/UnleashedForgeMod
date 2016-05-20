@@ -17,8 +17,7 @@ public class ItemBlockGradient extends ItemBlock {
     }
 
     @Override
-    public int getMetadata(int damage)
-    {
+    public int getMetadata(int damage){
         return damage;
     }
 

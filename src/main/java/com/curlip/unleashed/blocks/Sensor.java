@@ -63,13 +63,11 @@ public class Sensor extends UnleashedGenericBlock implements UnleashedMetaBlock 
 	
 	@Override
 	public String getUnlocalizedNameForIndex(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getModelNameForIndex(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

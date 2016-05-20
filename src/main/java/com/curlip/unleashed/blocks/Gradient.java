@@ -52,13 +52,16 @@ public class Gradient extends UnleashedGenericBlock implements UnleashedMetaBloc
 
 		GameRegistry.registerBlock(getMinecraftBlock(), ItemBlockGradient.class, id);
 		setDefaultState(this.blockState.getBaseState().withProperty(COLOR, EnumDyeColor.WHITE));
+		this.setHardness(1);
 	}
 
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
-
-        ret.add(new ItemStack(this, 1, state.getBlock().getMetaFromState(state)));
+        int meta = 15 - state.getBlock().getMetaFromState(state);
+        
+        				ret.add(new ItemStack(this, 1, 0));
+        if(meta != 15) 	ret.add(new ItemStack(Items.dye, 1, meta));
         
         return ret;
     }
@@ -98,17 +101,18 @@ public class Gradient extends UnleashedGenericBlock implements UnleashedMetaBloc
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ){
-			if(playerIn.inventory.getCurrentItem().getItem() instanceof ItemDye){
-				ItemStack stack = playerIn.inventory.getCurrentItem();
+    	ItemStack stack = playerIn.inventory.getCurrentItem();
+    	
+    	if(stack == null) return false;
+    	if(!(stack.getItem() instanceof ItemDye)) return false;
+    	
+		if((15 - stack.getMetadata()) != ((EnumDyeColor) worldIn.getBlockState(pos).getValue(COLOR)).getMetadata()){
+			worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(COLOR, EnumDyeColor.byMetadata(15 - stack.getMetadata())));
 			
-				if((15 - stack.getMetadata()) != ((EnumDyeColor) worldIn.getBlockState(pos).getValue(COLOR)).getMetadata()){
-					worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(COLOR, EnumDyeColor.byMetadata(15 - stack.getMetadata())));
+			playerIn.inventory.decrStackSize(playerIn.inventory.currentItem, 1);
 				
-					playerIn.inventory.decrStackSize(playerIn.inventory.currentItem, 1);
-				
-					return true;
-				}
-			}
+			return true;
+		}
 			
     	return false;
     }

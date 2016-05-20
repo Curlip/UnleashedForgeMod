@@ -42,8 +42,8 @@ public class BackpackBlock extends Block implements UnleashedBlock {
 	}
 
 	@Override
-	public CraftingRecipe[] getRelatedRecipes() {
+	public void registerRecipes() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 }

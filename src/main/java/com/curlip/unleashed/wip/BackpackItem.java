@@ -111,8 +111,8 @@ public class BackpackItem extends ItemArmor implements UnleashedWearable, Unleas
 	}
 
 	@Override
-	public CraftingRecipe[] getRelatedRecipes() {
+	public void registerRecipes() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 }
