@@ -14,43 +14,39 @@ import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
+import com.curlip.unleashed.UnleashedMod;
+import com.curlip.unleashed.blocks.Maker;
 import com.curlip.unleashed.framework.UnleashedChargable;
 import com.curlip.unleashed.items.chargers.EnergyCrystalCharger;
 
 public class ConsumeMiner extends UnleashedChargable {
 
 	public ConsumeMiner(String itemid) {
-		super(itemid, new EnergyCrystalCharger(0), true);
-
-		setMaxStackSize(1);
+		super(itemid, true, Items.glowstone_dust);
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ){
-		if(Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-			charge(stack, playerIn.inventory);
-		}else{
-				if(use(stack, playerIn.inventory)){
-					IBlockState state = worldIn.getBlockState(pos);
+		super.onItemUse(stack, playerIn, worldIn, pos, side, hitX, hitY, hitZ);
+		
+		if(!stack.hasTagCompound()) return false;
+		if(playerIn.isSneaking()) return false;
+		if(worldIn.getBlockState(pos).getBlock() == UnleashedMod.instance.blockRegister.getByID("maker")) return false;
+		
+		int charge = stack.getTagCompound().getInteger("charge");
+		int mass = stack.getTagCompound().getInteger("charge");
+		
+		if(charge > 0){
+			IBlockState state = worldIn.getBlockState(pos);
+			worldIn.setBlockToAir(pos);
 
-					List<ItemStack> drops = state.getBlock().getDrops(worldIn, pos, state, -1);
-
-					worldIn.setBlockToAir(pos);
-
-					for(ItemStack dropStack : drops){
-						Minecraft.getMinecraft().thePlayer.inventory.addItemStackToInventory(dropStack);
-					}
-
-				}
-			}
-
-		if(!stack.hasTagCompound()){
-			stack.setTagCompound(new NBTTagCompound());
+			stack.getTagCompound().setInteger("charge", charge-1);
+			stack.getTagCompound().setInteger("mass", mass+1);
+			
+			return true;
 		}
 		
-		stack.getTagCompound().getCompoundTag("Charger").setTag("Charger", this.getCharger(stack).save());
-		
-		return true;
+		return false;
 	}
 	
 	@Override

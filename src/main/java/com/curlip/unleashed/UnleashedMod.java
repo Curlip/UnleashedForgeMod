@@ -118,6 +118,7 @@ public class UnleashedMod {
         }
         
         blockRegister.add(new Sensor("sensor"));
+        blockRegister.add(new Sensor("maker"));
     	itemRegister.add(new TNTMiner("tntminer"));
         itemRegister.add(new ConsumeMiner("consumeminer"));
         
