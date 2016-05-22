@@ -1,0 +1,15 @@
+[
+{
+  "modid": "unleashed",
+  "name": "Minecraft Unleashed",
+  "version": "InDev 0.1",
+  "mcversion": "1.8",
+  
+  "logoFile": "assets/logo.png",
+  "description": "The Complete Minecraft Overhaul. More Features, Blocks, Items and Enchantments, to turn Minecraft on it's head.",
+  
+  "authorList": ["Curlip"],
+
+  "screenshots": []
+}
+]

@@ -1,0 +1,21 @@
+{
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#down",  "cullface": "#down",  "tintindex": 1  },
+                "up":    { "texture": "#up",  "cullface": "#up",  "tintindex": 1  },
+                "north": { "texture": "#all",  "cullface": "#all",  "tintindex": 1  },
+                "south": { "texture": "#all",  "cullface": "#all",  "tintindex": 1  },
+                "west":  { "texture": "#all",  "cullface": "#all",  "tintindex": 1  },
+                "east":  { "texture": "#all",  "cullface": "#all",  "tintindex": 1  }
+            }
+        }
+    ],
+    "textures": {
+       "particle": "unleashed:blocks/maker",
+       "all": "unleashed:blocks/maker",
+       "up": "unleashed:blocks/maker_top",
+       "down": "unleashed:blocks/maker_top"
+    }
+}

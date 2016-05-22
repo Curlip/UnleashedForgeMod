@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "color=white"     : { "model":"unleashed:simplegradient" },
+        "color=orange"    : { "model":"unleashed:simplegradient" },
+        "color=brown"     : { "model":"unleashed:simplegradient" },
+        "color=lime"      : { "model":"unleashed:simplegradient" },
+        "color=purple"    : { "model":"unleashed:simplegradient" },
+        "color=blue"      : { "model":"unleashed:simplegradient" },
+        "color=gray"      : { "model":"unleashed:simplegradient" },
+        "color=magenta"   : { "model":"unleashed:simplegradient" },
+        "color=green"     : { "model":"unleashed:simplegradient" },
+        "color=yellow"    : { "model":"unleashed:simplegradient" },
+        "color=cyan"      : { "model":"unleashed:simplegradient" },
+        "color=red"       : { "model":"unleashed:simplegradient" },
+        "color=silver"    : { "model":"unleashed:simplegradient" },
+        "color=black"     : { "model":"unleashed:simplegradient" },
+        "color=light_blue": { "model":"unleashed:simplegradient" },
+        "color=pink"      : { "model":"unleashed:simplegradient" }
+    }
+}
