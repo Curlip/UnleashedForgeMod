@@ -1,49 +1,22 @@
-#########################
-########## IDE ##########
-#########################
-
-## ECLIPSE ##
-
-.project
-.classpath
-.metadata
-org.*
+# eclipse
 bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-## IDEA ##
-
-*.iml
+# idea
+out
 *.ipr
 *.iws
+*.iml
 .idea
-out
 
-#############################
-########## IDE END ##########
-#############################
-
-##########################
-########## MISC ##########
-##########################
-
+# gradle
 build
 .gradle
-.DS_Store
-run
 
-gradlew
-gradlew.bat
-build.gradlew
-forge-1.8-11.14.3.1450-changelog.txt
-forge-1.8-11.14.1.1334-changelog.txt
-build.gradle
-
-gradlew
-logs
+# other
 eclipse
-
-exclude
-
-##########################
-########## MISC ##########
-##########################
+run
