@@ -17,7 +17,7 @@ import com.curlip.unleashed.items.chargers.ChargeCoreCharger;
 public class TNTMiner extends UnleashedChargable {
 
 	public TNTMiner(String itemid) {
-		super(itemid, true, Items.redstone);
+		super(itemid, false, Items.redstone);
 
 		setMaxStackSize(1);
 	}

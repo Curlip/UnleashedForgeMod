@@ -36,7 +36,7 @@ public class Maker extends SimpleBlock implements ITileEntityProvider {
 	final IBehaviorDispenseItem dropBehavior = new BehaviorDefaultDispenseItem();
 	
 	public Maker(String id) {
-		super(Material.rock, id, true);
+		super(Material.rock, id, false);
 
 		GameRegistry.registerTileEntity(MakerTile.class, "Maker");
 	}

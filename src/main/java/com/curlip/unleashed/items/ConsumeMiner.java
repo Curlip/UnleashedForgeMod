@@ -22,7 +22,7 @@ import com.curlip.unleashed.items.chargers.EnergyCrystalCharger;
 public class ConsumeMiner extends UnleashedChargable {
 
 	public ConsumeMiner(String itemid) {
-		super(itemid, true, Items.glowstone_dust);
+		super(itemid, false, Items.glowstone_dust);
 	}
 
 	@Override
