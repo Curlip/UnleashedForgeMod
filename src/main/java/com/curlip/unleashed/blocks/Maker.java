@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class Maker extends SimpleBlock {
 
 	public Maker(String id) {
-		super(Material.rock, id, true);
+		super(Material.rock, id, false);
 	}
 
 	@Override
