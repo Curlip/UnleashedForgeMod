@@ -20,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.curlip.unleashed.blocks.Counter;
 import com.curlip.unleashed.blocks.Gradient;
+import com.curlip.unleashed.blocks.Maker;
 import com.curlip.unleashed.blocks.RedstoneSlimeBlock;
 import com.curlip.unleashed.blocks.RedstoneSoulSand;
 import com.curlip.unleashed.blocks.Sensor;
@@ -118,7 +119,7 @@ public class UnleashedMod {
         }
         
         blockRegister.add(new Sensor("sensor"));
-        blockRegister.add(new Sensor("maker"));
+        blockRegister.add(new Maker("maker"));
     	itemRegister.add(new TNTMiner("tntminer"));
         itemRegister.add(new ConsumeMiner("consumeminer"));
         

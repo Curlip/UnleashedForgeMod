@@ -22,7 +22,7 @@ import com.curlip.unleashed.items.chargers.EnergyCrystalCharger;
 public class ConsumeMiner extends UnleashedChargable {
 
 	public ConsumeMiner(String itemid) {
-		super(itemid, false, Items.glowstone_dust);
+		super(itemid, true, Items.glowstone_dust);
 	}
 
 	@Override
@@ -31,10 +31,9 @@ public class ConsumeMiner extends UnleashedChargable {
 		
 		if(!stack.hasTagCompound()) return false;
 		if(playerIn.isSneaking()) return false;
-		if(worldIn.getBlockState(pos).getBlock() == UnleashedMod.instance.blockRegister.getByID("maker")) return false;
 		
 		int charge = stack.getTagCompound().getInteger("charge");
-		int mass = stack.getTagCompound().getInteger("charge");
+		int mass = stack.getTagCompound().getInteger("mass");
 		
 		if(charge > 0){
 			IBlockState state = worldIn.getBlockState(pos);
@@ -52,7 +51,7 @@ public class ConsumeMiner extends UnleashedChargable {
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int renderpass){
 		if(itemstack.getTagCompound()!=null){
-			return renderpass == 0 ? 0x373700 + (0x010100 * (itemstack.getTagCompound().getInteger(Items.glowstone_dust.getUnlocalizedName()))) : 0xFFFFFF;
+			return renderpass == 0 ? 0x373700 + (0x010100 * (itemstack.getTagCompound().getInteger("charge"))) : 0xFFFFFF;
 		}else{
 			return renderpass == 0 ? 0x373700 : 0xFFFFFF;
 		}

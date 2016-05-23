@@ -17,7 +17,7 @@ import com.curlip.unleashed.items.chargers.ChargeCoreCharger;
 public class TNTMiner extends UnleashedChargable {
 
 	public TNTMiner(String itemid) {
-		super(itemid, false, Items.redstone);
+		super(itemid, true, Items.redstone);
 
 		setMaxStackSize(1);
 	}
@@ -32,7 +32,7 @@ public class TNTMiner extends UnleashedChargable {
 		if(player.inventory.hasItem(tntItem) && charge > 0){
 			player.inventory.consumeInventoryItem(Blocks.tnt.getItem(player.worldObj, pos));
 			if(!player.worldObj.isRemote){	
-				player.worldObj.createExplosion(new EntityTNTPrimed(player.worldObj), (double) pos.getX() - 0.5, (double) pos.getY() - 0.5, (double) pos.getZ() - 0.5, 3, true);
+				player.worldObj.createExplosion(new EntityTNTPrimed(player.worldObj), (double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), 4, true);
 			}
 			stack.getTagCompound().setInteger("charge", charge-1);
 			
